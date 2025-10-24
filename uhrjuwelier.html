@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Juwelier Jonas – Live Uhr</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    font-family: system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .jj-brand-clock-wrapper {
+    width: 220px;           /* Größe hier ändern, wenn gewünscht */
+    aspect-ratio: 1 / 1;
+    position: relative;
+  }
+
+  .jj-clock-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .jj-clock-face {
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.25));
+  }
+
+  .jj-diamond {
+    filter: drop-shadow(0 6px 8px rgba(0,0,0,0.35));
+  }
+
+  .jj-hour-hand,
+  .jj-minute-hand {
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+  }
+
+  .jj-brand-label {
+    margin-top: 0.75rem;
+    text-align: center;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    color: #6f6f6f;
+    font-weight: 500;
+    user-select: none;
+  }
+
+  .jj-brand-label strong {
+    display: block;
+    font-size: 0.9rem;
+    color: #3a3a3a;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 480px) {
+    .jj-brand-clock-wrapper {
+      width: 180px;
+    }
+    .jj-brand-label {
+      font-size: 0.7rem;
+    }
+    .jj-brand-label strong {
+      font-size: 0.8rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="jj-brand-clock-wrapper">
+  <svg class="jj-clock-svg" viewBox="0 0 200 200" aria-labelledby="jjClockTitle jjClockDesc" role="img">
+    <title id="jjClockTitle">Juwelier Jonas – Uhr mit Diamant</title>
+    <desc id="jjClockDesc">Eine stilisierte Wanduhr mit goldenen Indizes und einem Diamanten; die Zeiger zeigen die aktuelle Uhrzeit.</desc>
+
+    <defs>
+      <radialGradient id="rimGrad" cx="50%" cy="40%" r="70%">
+        <stop offset="0%" stop-color="#dfe2e5"/>
+        <stop offset="60%" stop-color="#aeb2b7"/>
+        <stop offset="100%" stop-color="#7b7f83"/>
+      </radialGradient>
+      <radialGradient id="dialGrad" cx="50%" cy="45%" r="75%">
+        <stop offset="0%" stop-color="#f2f3f4"/>
+        <stop offset="60%" stop-color="#d0d2d4"/>
+        <stop offset="100%" stop-color="#a8aaad"/>
+      </radialGradient>
+      <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#d9c07a"/>
+        <stop offset="50%" stop-color="#b5923f"/>
+        <stop offset="100%" stop-color="#8d6f2a"/>
+      </linearGradient>
+      <linearGradient id="diamondFaceA" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="50%" stop-color="#cfd5da"/>
+        <stop offset="100%" stop-color="#8b949c"/>
+      </linearGradient>
+      <linearGradient id="diamondFaceB" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="50%" stop-color="#dfe3e7"/>
+        <stop offset="100%" stop-color="#9da5ac"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Rahmen -->
+    <circle cx="90" cy="90" r="80" fill="url(#rimGrad)" stroke="#6f7277" stroke-width="1.5"/>
+    <!-- Zifferblatt -->
+    <circle cx="90" cy="90" r="70" fill="url(#dialGrad)" stroke="#8a8c90" stroke-width="0.75"/>
+
+    <!-- Stunden-Indizes -->
+    <g fill="url(#goldGrad)" stroke="#5e4a1c" stroke-width="0.5" stroke-linejoin="round">
+      <rect x="87" y="28" width="6" height="14" rx="1.5" ry="1.5"/>
+      <rect x="87" y="28" width="6" height="14" rx="1.5" ry="1.5" transform="rotate(30 90 90)"/>
+      <rect x="87" y="28" width="6" height="14" rx="1.5" ry="1.5" transform="rotate(60 90 90)"/>
+      <rect x="87" y="28" width="6" height="14" rx="1.5" ry="1.5" transform="rotate(90 90 90)"/>
+      <rect x="87" y="28" width="6" height="14" rx="1.5" ry="1.5" transform="rotate(120 90 90)"/>
+      <rect x="87" y="28" width="6" height="14" rx="1.5" ry="1.5" transform="rotate(150 90 90)"/>
+      <rect x="87" y="28" width="6" height="14" rx="1.5" ry="1.5" transform="rotate(180 90 90)"/>
+      <rect x="87" y="28" width="6" height="14" rx="1.5" ry="1.5" transform="rotate(210 90 90)"/>
+      <rect x="87" y="28" width="6" height="14" rx="1.5" ry="1.5" transform="rotate(240 90 90)"/>
+      <rect x="87" y="28" width="6" height="14" rx="1.5" ry="1.5" transform="rotate(270 90 90)"/>
+      <rect x="87" y="28" width="6" height="14" rx="1.5" ry="1.5" transform="rotate(300 90 90)"/>
+      <rect x="87" y="28" width="6" height="14" rx="1.5" ry="1.5" transform="rotate(330 90 90)"/>
+    </g>
+
+    <!-- Stundenzeiger -->
+    <g class="jj-hour-hand">
+      <rect x="88.5" y="60" width="3" height="32" rx="1.5" ry="1.5"
+            fill="url(#goldGrad)" stroke="#5e4a1c" stroke-width="0.5"/>
+      <circle cx="90" cy="90" r="4.5"
+              fill="url(#goldGrad)" stroke="#5e4a1c" stroke-width="0.6"/>
+    </g>
+
+    <!-- Minutenzeiger -->
+    <g class="jj-minute-hand">
+      <rect x="88.5" y="38" width="3" height="54" rx="1.2" ry="1.2"
+            fill="url(#goldGrad)" stroke="#5e4a1c" stroke-width="0.5"/>
+      <circle cx="90" cy="90" r="4.5"
+              fill="url(#goldGrad)" stroke="#5e4a1c" stroke-width="0.6"/>
+    </g>
+
+    <!-- Diamant -->
+    <g class="jj-diamond" transform="translate(115,105) scale(0.8)">
+      <polygon points="0,0 40,0 50,8 25,30 0,8"
+               fill="url(#diamondFaceA)" stroke="#8f949a" stroke-width="0.6"/>
+      <polygon points="0,0 0,8 25,30 18,10"
+               fill="url(#diamondFaceB)" stroke="#8f949a" stroke-width="0.6"/>
+      <polygon points="40,0 50,8 25,30 32,10"
+               fill="url(#diamondFaceB)" stroke="#8f949a" stroke-width="0.6"/>
+      <polygon points="18,10 32,10 25,30"
+               fill="url(#diamondFaceA)" stroke="#8f949a" stroke-width="0.6"/>
+    </g>
+  </svg>
+</div>
+
+<div class="jj-brand-label">
+  <strong>Juwelier&nbsp;Jonas</strong>
+  Immer die richtige Zeit.
+</div>
+
+<script>
+(function () {
+  const hourHand  = document.querySelector('.jj-hour-hand');
+  const minuteHand = document.querySelector('.jj-minute-hand');
+
+  function updateClock() {
+    const now = new Date();
+    const hours = now.getHours() % 12;
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    const hourDeg = (hours * 30) + (minutes * 0.5);
+    const minuteDeg = (minutes * 6) + (seconds * 0.1);
+
+    if (hourHand)   { hourHand.style.transform   = 'rotate(' + hourDeg   + 'deg)'; }
+    if (minuteHand) { minuteHand.style.transform = 'rotate(' + minuteDeg + 'deg)'; }
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+})();
+</script>
+
+</body>
+</html>
